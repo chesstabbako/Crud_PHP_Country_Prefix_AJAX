@@ -1,0 +1,130 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.container-phones {
+  border: 1px solid blue;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+  padding: 1rem;
+}
+
+.phones-list {
+  border: 1px solid red;
+  width: 58%;
+  padding: 1rem;
+}
+
+.createNew {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+  border: 1px solid yellow;
+  width: 40%;
+  padding: 0.5rem;
+}
+
+.createNew input {
+  width: 95%;
+  margin-top: 0.5rem;
+}
+
+/* phones-list */
+
+.phones-list {
+  /* border: 1px solid black; */
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0.3rem;
+}
+
+#form1{
+
+width: 95%;
+/* border: 1px solid black; */
+display: flex;
+flex-wrap: wrap;
+align-items: center;
+justify-content: space-around;
+padding: 0.3rem;
+
+}
+
+#form_search{
+
+  width: 99%;
+  /* border: 1px solid yellow; */
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0.1rem;
+
+}
+
+#form_search .search{
+ /*  border: 1px solid blueviolet; */
+  width: 75%;
+}
+
+#form_search .btn_search{
+  /* border: 1px solid blueviolet; */
+  width: 20%;
+}
+
+.table {
+  /* border: 1px solid green; */
+  margin-top: 1rem;
+  width: 95%;
+}
+
+.table .thead tr th {
+  border: 1px solid purple;
+}
+
+.info {
+  border: 1px solid black;
+  text-align: center;
+}
+
+.actions {
+  border: 1px solid black;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0.3rem;
+}
+
+.actions a {
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+  width: 3rem;
+  text-decoration: none;
+  padding: 0.2rem;
+  color: white;
+  font-size: 1rem;
+  border-radius: 0.3rem;
+}
+
+.actions .delete {
+  border: 1px solid black;
+  background: rgba(151, 9, 9, 0.8);
+}
+
+.actions .edit {
+  border: 1px solid black;
+  background: rgba(66, 173, 16, 0.8);
+}
+
+/* phones-list finishes*/
