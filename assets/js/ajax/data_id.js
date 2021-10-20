@@ -1,14 +1,14 @@
 $(document).ready(function(){
- 
     $(document).on('click', '.edit_id',function (e) {
-        e.stopPropagation();
-        e.preventDefault();
+      e.stopPropagation();
+      e.preventDefault();
+      $(".editNew").show(500);
 
     var id= $(this).data('id');
    console.log(id);
     $.ajax({
         method: "POST",
-        url: "index.php?c=cart&a=dataById",
+        url: "index.php?c=phone&a=dataById",
         data:{
            id 
         }

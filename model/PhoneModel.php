@@ -1,6 +1,6 @@
 <?php
 
-class CartModel
+class PhoneModel
 {
 
     private $db;
@@ -85,7 +85,7 @@ class CartModel
 
     public function search_phone($number)
     {
-        $sql= "SELECT * FROM `all_phone_book`  WHERE `number` LIKE :number_u";
+        $sql= "SELECT * FROM `all_phone_book`  WHERE `number` LIKE concat('%', :number_u, '%')";
         $result = $this->db->prepare($sql);
         $result->bindValue(":number_u", $number);
         $result->execute();

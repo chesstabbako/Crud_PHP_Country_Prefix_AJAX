@@ -13,7 +13,7 @@ $(document).ready(function(){
         $.ajax({
 
               method:"POST",
-              url:"index.php?c=cart&a=delete",
+              url:"index.php?c=phone&a=delete",
               data:{
                 
                 id: id,

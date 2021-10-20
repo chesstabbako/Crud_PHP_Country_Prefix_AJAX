@@ -3,7 +3,7 @@ $(document).ready(function(){
     $("#registers").empty();
     $.ajax({
         method: "GET",
-        url: "index.php?c=cart&a=data",
+        url: "index.php?c=phone&a=data",
       }).done(function (response) {
         let phones= JSON.parse(response);
         let template= "";

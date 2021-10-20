@@ -9,7 +9,7 @@ $(document).ready(function () {
 
     $.ajax({
       method: "POST",
-      url: "index.php?c=cart&a=search",
+      url: "index.php?c=phone&a=search",
       data: { 
         number: number
       }

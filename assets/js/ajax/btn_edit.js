@@ -4,6 +4,7 @@ $(document).ready(function () {
    
     e.stopPropagation();
     e.preventDefault();
+    
     var id= $(this).parent('form').find("[name='idU']").val();
     var name= $(this).parent('form').find("[name='nameU']").val();
     var number= $(this).parent('form').find("[name='numberU']").val();
@@ -15,7 +16,7 @@ $(document).ready(function () {
 
       $.ajax({
         method: "POST",
-        url: "index.php?c=cart&a=update",
+        url: "index.php?c=phone&a=update",
         data: {
           id :id, 
           name: name, 
@@ -44,13 +45,14 @@ $(document).ready(function () {
               </tr>`;
   
           });
+
           $('#idU').val("");
           $('#prefixU').val("");
           $('#numberU').val("");
           $('#nameU').val("");
           $("#registers").html(template);
+          
         });//ajax create finishes..
-
     }
   });
 

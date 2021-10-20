@@ -1,6 +1,6 @@
 <?php
 
-class CartController
+class PhoneController
 {
 
   public function index()
@@ -13,7 +13,7 @@ class CartController
   public function data()
   {
 
-    $items = new CartModel();
+    $items = new PhoneModel();
     $data["phones"] = $items->get_phones();
 
     echo json_encode($data["phones"]);
@@ -25,7 +25,7 @@ class CartController
       $prefix = $_POST['prefix'];
       $number = $_POST['number'];
       $name = $_POST['name'];
-      $items = new CartModel();
+      $items = new PhoneModel();
       $create_phone = $items->create_phones($prefix, $number, $name);
       if ($create_phone === "Success") {
         echo json_encode($items->get_phones());
@@ -41,7 +41,7 @@ class CartController
 
     if (isset($_POST['id'])) {
       $id = $_POST['id'];
-      $items = new CartModel();
+      $items = new PhoneModel();
       $data["phone"] = $items->get_by_id($id);
       echo json_encode($data["phone"][0]);
     }
@@ -53,7 +53,7 @@ class CartController
     if (isset($_POST['id'])) {
 
       $id = $_POST['id'];
-      $items = new CartModel();
+      $items = new PhoneModel();
       $create_phones = $items->delete_phone($id);
 
       echo "Deleted Successfully";
@@ -73,7 +73,7 @@ class CartController
       $number = $_POST['number'];
       $prefix = $_POST['prefix'];
 
-      $items = new CartModel();
+      $items = new PhoneModel();
       $update_phone = $items->update_phone($id, $prefix, $number, $name);
 
       if ($update_phone === "Success") {
@@ -89,7 +89,7 @@ class CartController
           
     if(isset($_POST['number'])){
       $number= $_POST['number'];
-      $items= new CartModel();
+      $items= new PhoneModel();
       $data["phones"]= $items->search_phone($number);
       echo json_encode($data["phones"]);
     }

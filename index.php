@@ -1,8 +1,8 @@
 <?php
 
    require_once "config/connection.php";
-   require_once "model/CartModel.php";
-   require_once "controller/Cart.php";
+   require_once "model/PhoneModel.php";
+   require_once "controller/Phone.php";
    require_once "config/library.php";
    require_once "cores/changer.php";
 
