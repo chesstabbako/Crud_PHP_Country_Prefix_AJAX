@@ -9,7 +9,7 @@ PHP 7+, JavaScript (JQuery), Twitter Bootstrap (optional), HTML, CSS, AJAX.
 
 This link was used to make an array with the country prefix and name https://en.wikipedia.org/wiki/List_of_country_calling_codes
 If you can't validate a prefix, then: 07, 02, 03 are Romanian mobile numbers, else German mobile numbers.
-It must be a fully functional page that can add/retrieve/detete/search phone numbers for demonstration how it works.
+It's fully functional page that can add/retrieve/delete/search phone numbers.
 
 00 will be converted to +
 '-' and space will be replaced with NULL
