@@ -17,7 +17,7 @@
   padding: 1rem;
 }
 
-/*  create form begins*/ 
+/*  create form begins*/
 .createNew {
   display: flex;
   flex-wrap: wrap;
@@ -51,7 +51,7 @@
   font-weight: bold;
 }
 
-/*  create form finishes */ 
+/*  create form finishes */
 
 /* phones-list */
 
@@ -65,7 +65,7 @@
   border: none;
   border-radius: 0.5rem;
   box-shadow: 0.4rem 0.2rem 0.5rem rgba(0, 0, 0, 0.3);
-  margin-top: .8rem;
+  margin-top: 0.8rem;
 }
 
 #form1 {
@@ -166,11 +166,17 @@
 /*  edit form begins*/
 
 .editNew {
+  position: fixed;
+  background: rgba(95, 87, 87, 0.7);
+  top: 0;
+  left: 0;
+  z-index: 1;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  width: 100%;
+  width: 100vw;
+  height: 100vh;
   padding: 0.5rem;
 }
 
@@ -203,6 +209,13 @@
   box-shadow: 0.4rem 0.3rem 0.2rem rgba(0, 0, 0, 0.3);
   cursor: pointer;
   font-weight: bold;
+}
+
+#prefixU {
+  color: dimGray;
+}
+#nameU {
+  color: dimGray;
 }
 
 .editNew .btn_cancel_edit {

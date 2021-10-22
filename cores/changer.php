@@ -1,44 +1,39 @@
 <?php
 
-function goController($controller){
+function goController($controller)
+{
 
-     $newController= ucwords($controller)."Controller";
-     $fileController= "controller/".ucwords($controller).".php";
+  $newController = ucwords($controller) . "Controller";
+  $fileController = "controller/" . ucwords($controller) . ".php";
 
-      if(is_file($fileController)){
-      
-        $fileController="controller/".MAIN_CONTROLLER.".php";
-      
-      }//if(is_file($fileController)) finishes...
+  if (is_file($fileController)) {
 
-    require_once $fileController;
+    $fileController = "controller/" . MAIN_CONTROLLER . ".php";
+  } //if(is_file($fileController)) finishes...
 
-    $control= new $newController;
+  require_once $fileController;
 
-    return $control;
+  $control = new $newController;
 
-}//function goController($controller) finishes...
+  return $control;
+} //function goController($controller) finishes...
 
-function createAction($controller, $action, $id=null){
+function createAction($controller, $action, $id = null)
+{
 
-    if(isset($action) && method_exists($controller, $action)){
+  if (isset($action) && method_exists($controller, $action)) {
 
-          if($id==null){
-            
-            $controller->$action();
+    if ($id == null) {
 
-          }else{
+      $controller->$action();
+    } else {
 
-            $controller->$action($id);
-
-          }
-
-    }else{
-
-       $mainAction= MAIN_ACTION;
-
-       $controller->$mainAction();
-
+      $controller->$action($id);
     }
+  } else {
 
+    $mainAction = MAIN_ACTION;
+
+    $controller->$mainAction();
+  }
 }

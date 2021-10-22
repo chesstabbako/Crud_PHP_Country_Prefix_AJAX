@@ -30,9 +30,9 @@ class PhoneModel
 
     public function get_by_id($id)
     {
-        $sql= "SELECT * FROM `all_phone_book` WHERE id=:id";
+        $sql = "SELECT * FROM `all_phone_book` WHERE id=:id";
         $result = $this->db->prepare($sql);
-        $result->bindValue(":id",$id);
+        $result->bindValue(":id", $id);
         $result->execute();
 
         while ($row = $result->fetchAll(PDO::FETCH_ASSOC)) {
@@ -40,6 +40,21 @@ class PhoneModel
             $this->content[] = $row;
         }
         return $this->content;
+    } //get_by_id($id) finishes
+
+    public function get_by_prefix_number($prefix, $number)
+    {
+        $sql = "SELECT * FROM `all_phone_book` WHERE `prefix`=:prefix AND `number`= :number_u";
+        $result = $this->db->prepare($sql);
+        $result->bindValue(":prefix", $prefix);
+        $result->bindValue(":number_u", $number);
+        $result->execute();
+
+        while ($row = $result->fetchAll(PDO::FETCH_ASSOC)) {
+
+            $this->content[] = $row;
+        }
+        return count($this->content);;
     } //get_by_id($id) finishes
 
     public function create_phones($prefix, $number, $name)
@@ -66,7 +81,7 @@ class PhoneModel
         $result = $this->db->prepare($sql);
         $result->bindValue(":id", $id);
         $result->execute();
-    }//delete_phone($id)
+    } //delete_phone($id)
 
     public function update_phone($id, $prefix, $number, $name)
     {
@@ -85,7 +100,7 @@ class PhoneModel
 
     public function search_phone($number)
     {
-        $sql= "SELECT * FROM `all_phone_book`  WHERE `number` LIKE concat('%', :number_u, '%')";
+        $sql = "SELECT * FROM `all_phone_book`  WHERE `number` LIKE concat('%', :number_u, '%')";
         $result = $this->db->prepare($sql);
         $result->bindValue(":number_u", $number);
         $result->execute();

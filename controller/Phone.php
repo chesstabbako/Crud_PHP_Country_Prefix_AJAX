@@ -26,12 +26,24 @@ class PhoneController
       $number = $_POST['number'];
       $name = $_POST['name'];
       $items = new PhoneModel();
-      $create_phone = $items->create_phones($prefix, $number, $name);
-      if ($create_phone === "Success") {
-        echo json_encode($items->get_phones());
+      $exist_phone = $items->get_by_prefix_number($prefix, $number);
+      /* echo $exist_phone; */
+
+      if ($exist_phone === 1) {
+        $response = new stdClass();
+        $response->exist = $exist_phone;
+        $response->data = $items->get_phones();
+        echo json_encode($response);
+      } else {
+        $create_phone = $items->create_phones($prefix, $number, $name);
+        if ($create_phone === "Success") {
+          $response2 = new stdClass();
+          $response2->exist = 0;
+          $response2->data = $items->get_phones();
+          echo json_encode($response2);
+        }
       }
     } else {
-
       echo "Something is wrong";
     }
   } //function create()
@@ -85,14 +97,14 @@ class PhoneController
     }
   }
 
-  public function search(){
-          
-    if(isset($_POST['number'])){
-      $number= $_POST['number'];
-      $items= new PhoneModel();
-      $data["phones"]= $items->search_phone($number);
+  public function search()
+  {
+
+    if (isset($_POST['number'])) {
+      $number = $_POST['number'];
+      $items = new PhoneModel();
+      $data["phones"] = $items->search_phone($number);
       echo json_encode($data["phones"]);
     }
-  
-  }//dataById()
+  } //dataById()
 }//Class CartController finishes

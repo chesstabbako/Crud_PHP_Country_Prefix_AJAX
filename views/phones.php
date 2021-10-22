@@ -17,9 +17,9 @@
 
             <div class="createNew">
                 <form action="#" method="POST" id="form-create">
-                    <input type="text" name="prefix" id="prefix" placeholder="Prefix"autocomplete="off" required>
+                    <input type="text" name="prefix" id="prefix" placeholder="Prefix" autocomplete="off" required>
                     <input type="text" name="number" id="number" placeholder="number" autocomplete="off" required>
-                    <input type="text" name="name" id="name" placeholder="name" autocomplete="off" required>
+                    <input type="hidden" name="name" id="name" placeholder="name" autocomplete="off" required>
                     <input type="button" value="Create new phone" class="btn_create">
                 </form>
             </div>
@@ -28,7 +28,7 @@
 
                 <div id="form1">
                     <form action="#" method="POST" id='form_search'>
-                        <input type="text" name="search" id="search" class="search" placeholder="Search Phone" autocomplete="off">
+                        <input type="text" name="search" id="search" class="search" placeholder="Search Phone Number" autocomplete="off">
                     </form>
                 </div>
 
@@ -38,7 +38,7 @@
                             <th>Id</th>
                             <th>Prefix</th>
                             <th>Number</th>
-                            <th>Name</th>
+                            <th>Country's name</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -56,9 +56,9 @@
         <div class="editNew">
             <form action="#" method="POST" id="form-update">
                 <input type="hidden" name="idU" id="idU" placeholder="id" value="" autocomplete="off" required>
-                <input type="text" name="prefixU" id="prefixU" placeholder="Prefix" value="" autocomplete="off" required>
+                <input type="text" name="prefixU" id="prefixU" placeholder="Prefix" value="" autocomplete="off" readonly required>
                 <input type="text" name="numberU" id="numberU" placeholder="number" value="" autocomplete="off" required>
-                <input type="text" name="nameU" id="nameU" placeholder="name" value="" autocomplete="off" required>
+                <input type="text" name="nameU" id="nameU" placeholder="name" value="" autocomplete="off" readonly required>
                 <input type="submit" value="Edit phone" class="btn_edit">
                 <input type="submit" value="No edit" class="btn_cancel_edit">
             </form>
