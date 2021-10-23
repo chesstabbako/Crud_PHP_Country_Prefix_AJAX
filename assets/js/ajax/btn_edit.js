@@ -77,7 +77,7 @@ $(document).ready(function () {
         $("#numberU").val("");
         $("#nameU").val("");
         $("#registers").html(template);
-        $(".editNew").addClass("hideEdit");
+        $(".editNew").hide(500);
       }); //ajax create finishes..
     }
   });
