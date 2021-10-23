@@ -18,16 +18,14 @@ $(document).ready(function () {
       .split("");
     let name = $(this).parent("form").find("input[name='name']").val().trim();
 
+    var pre = [];
     var newPre = [];
     var newNum = [];
 
     var cero = [false, false];
 
     number.forEach((e, i) => {
-      if (e === "-") {
-        e = null;
-      }
-      if (e === " ") {
+      if (e === "-" || e === " ") {
         e = null;
       }
       newNum.push(e);
@@ -35,15 +33,14 @@ $(document).ready(function () {
 
     number = newNum.join("");
 
-    console.log(number);
-
     prefix.forEach((e, i) => {
-      if (e === "-") {
+      if (e === "-" || e === " ") {
         e = null;
       }
-      if (e === " ") {
-        e = null;
-      }
+      pre.push(e);
+    });
+
+    pre.join("").split("").forEach((e, i) => {
       if (i === 0 && e === "0") {
         cero[0] = true;
       }
@@ -52,6 +49,8 @@ $(document).ready(function () {
       }
       newPre.push(e);
     });
+
+    console.log(newPre);
 
     if (cero[0] === true && cero[1] === true) {
       newPre.splice(0, 2, "+");
@@ -1409,13 +1408,9 @@ $(document).ready(function () {
       prefix = existCountry[0].prefix;
       name = existCountry[0].name;
     } else {
-      if (prefix === "07") {
+      if (prefix === "07" || prefix === "02" || prefix === "03") {
         name = "Romanian mobile number";
-      } else if (prefix === "02") {
-        name = "Romanian mobile number";
-      } else if (prefix === "03") {
-        name = "Romanian mobile number";
-      } else {
+      }else {
         name = "German mobile number";
       }
     }
@@ -1445,7 +1440,7 @@ $(document).ready(function () {
         console.log(phones.data);
         if (phones.exist === 1) {
           console.log(response);
-          alert("This prefix and number already exist in our database");
+          alert("This combination of prefix and number already exist in our database");
         }
         let template = "";
         $.each(

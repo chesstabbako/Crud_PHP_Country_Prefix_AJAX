@@ -19,10 +19,7 @@ $(document).ready(function () {
     var cero = [false, false];
 
     number.forEach((e, i) => {
-      if (e === "-") {
-        e = null;
-      }
-      if (e === " ") {
+      if (e === "-" || e === " ") {
         e = null;
       }
       newNum.push(e);
@@ -80,7 +77,7 @@ $(document).ready(function () {
         $("#numberU").val("");
         $("#nameU").val("");
         $("#registers").html(template);
-        $(".editNew").hide(500);
+        $(".editNew").addClass("hideEdit");
       }); //ajax create finishes..
     }
   });
