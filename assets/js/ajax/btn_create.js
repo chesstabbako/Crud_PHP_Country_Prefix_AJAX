@@ -40,15 +40,18 @@ $(document).ready(function () {
       pre.push(e);
     });
 
-    pre.join("").split("").forEach((e, i) => {
-      if (i === 0 && e === "0") {
-        cero[0] = true;
-      }
-      if (i === 1 && e === "0") {
-        cero[1] = true;
-      }
-      newPre.push(e);
-    });
+    pre
+      .join("")
+      .split("")
+      .forEach((e, i) => {
+        if (i === 0 && e === "0") {
+          cero[0] = true;
+        }
+        if (i === 1 && e === "0") {
+          cero[1] = true;
+        }
+        newPre.push(e);
+      });
 
     console.log(newPre);
 
@@ -56,6 +59,8 @@ $(document).ready(function () {
       newPre.splice(0, 2, "+");
     }
     prefix = newPre.join("");
+
+    console.log(prefix);
 
     var array = [
       {
@@ -1032,15 +1037,11 @@ $(document).ready(function () {
       },
       {
         prefix: "+7840",
-        name: "Abkhazia ",
+        name: "Abkhazia 1",
       },
       {
         prefix: "+7940",
-        name: "Abkhazia",
-      },
-      {
-        prefix: "+99544",
-        name: "Abkhazia",
+        name: "Abkhazia 2",
       },
       {
         prefix: "+800",
@@ -1376,7 +1377,7 @@ $(document).ready(function () {
       },
       {
         prefix: "+99544",
-        name: "Abkhazia",
+        name: "Abkhazia 0",
       },
       {
         prefix: "+996",
@@ -1404,13 +1405,15 @@ $(document).ready(function () {
       }
     });
 
+    console.log(existCountry);
+
     if (existCountry.length > 0) {
       prefix = existCountry[0].prefix;
       name = existCountry[0].name;
     } else {
       if (prefix === "07" || prefix === "02" || prefix === "03") {
         name = "Romanian mobile number";
-      }else {
+      } else {
         name = "German mobile number";
       }
     }
@@ -1434,19 +1437,22 @@ $(document).ready(function () {
           name: name,
           number: number,
         },
-      }).done(function (response) {
-        $("#registers").empty();
-        var phones = JSON.parse(response);
-        console.log(phones.data);
-        if (phones.exist === 1) {
-          console.log(response);
-          alert("This combination of prefix and number already exist in our database");
-        }
-        let template = "";
-        $.each(
-          phones.exist === 1 ? phones.data[1] : phones.data[0],
-          function (key, phone) {
-            template += `<tr>
+      })
+        .done(function (response) {
+          $("#registers").empty();
+          var phones = JSON.parse(response);
+          console.log(phones.data);
+          if (phones.exist === 1) {
+            console.log(response);
+            alert(
+              "This combination of prefix and number already exist in our database"
+            );
+          }
+          let template = "";
+          $.each(
+            phones.exist === 1 ? phones.data[1] : phones.data[0],
+            function (key, phone) {
+              template += `<tr>
                     <td class="info">${phone["id"]}</td>
                     <td class="info">${phone["prefix"]}</td>
                     <td class="info">${phone["number"]}</td>
@@ -1459,15 +1465,18 @@ $(document).ready(function () {
                         </a>
                     </td>
                   </tr>`;
-          }
-        );
+            }
+          );
 
-        $("#id").val("");
-        $("#prefix").val("");
-        $("#number").val("");
-        $("#name").val("");
-        $("#registers").html(template);
-      }); //ajax create finishes..
+          $("#id").val("");
+          $("#prefix").val("");
+          $("#number").val("");
+          $("#name").val("");
+          $("#registers").html(template);
+        })
+        .fail(function (statusText) {
+          alert("Problem to insert this data");
+        }); //ajax create finishes..
     }
   }); //create finishes
 }); //ready finishes

@@ -16,7 +16,7 @@ class PhoneModel
 
     public function get_phones()
     {
-        $sql = "select * from `all_phone_book`";
+        $sql = "select * from `all_phone_book` ORDER BY `id` ASC";
         $result = $this->db->prepare($sql);
         $result->execute();
 
